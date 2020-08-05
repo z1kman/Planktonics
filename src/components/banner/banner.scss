@@ -1,0 +1,83 @@
+@import '../../variables';
+.banner{ 
+    width: 100%;
+    height: 70vh;
+    background-color: $colorTheme1;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}   
+.banner__column{
+    display: flex;
+    width: 70%;
+    align-items: flex-end;
+}
+.banner__left-column, .banner__right-column{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 1%;
+}
+.banner__label-big{
+    padding: 0px;
+    margin: 0px;
+    font-size: 6rem;
+    color:white;
+    
+}
+.banner__label-midle{
+    font-size: 2rem;
+}
+.banner__label-small{
+    font-size: 1.7rem;
+}
+
+@media screen and (min-width : 640px) and (max-width :1000px) {
+
+    .banner__column{
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        transition: 0.5s;
+    }
+    .banner__left-column{
+        width: 100%;
+        transition: 0.5s;
+    }
+    .banner__right-column{
+        width: 100%;
+        text-align: center;
+        transition: 0.5s;
+    }
+
+}
+@media screen and (max-width : 640px) {
+    .banner{
+        min-width: 300px;
+        max-width: 640px;
+    }
+    .banner__column{
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+    .banner__left-column{
+        width: 100%;
+    }
+    .banner__right-column{
+        margin-top: 10%;
+        width: 100%;
+    }
+    .banner__label-big{
+        transition: 0.5s;
+        font-size: 2.6rem;
+    }
+    .banner__label-midle{
+        font-size: 1.4rem;
+    }
+    .banner__label-small{
+        font-size: 1rem;
+    }
+}
