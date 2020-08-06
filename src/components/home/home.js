@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../header';
 import Content from '../content';
 
-function App() {
+function Home() {
   return (
     <>
       <Header />
@@ -11,4 +11,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

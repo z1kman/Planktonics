@@ -15,7 +15,8 @@
   align-items: flex-end;
 }
 
-.banner__left-column, .banner__right-column {
+.banner__left-column,
+.banner__right-column {
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -37,6 +38,11 @@
   font-size: 1.7rem;
 }
 
+@media screen and (min-width: 2100px) {
+  .banner__right-column {
+    flex: 2;
+  }
+}
 @media screen and (min-width: 640px) and (max-width: 1000px) {
   .banner__column {
     width: 100%;

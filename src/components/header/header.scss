@@ -1,4 +1,11 @@
 @import '../../variables';
+a{
+    text-decoration: none;
+    color:black;
+    &:hover {
+        color:black;
+    }
+}
 .header {
     width: 100%;
     margin: 0px;
@@ -48,6 +55,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 25%;
     cursor: default;
 }
 
@@ -72,30 +80,27 @@
         max-width: 1000px;
         height: 75px;
         transition: 0.5s;
+        display: flex;
+        flex-direction: column;
     }
 
     .header__label {
-        min-width: 90%;
-        max-width: 100%;
+        width: 100%;    
         transition: 0.5s;
         font-size: 1.8rem;
     }
 
     .header__menu {
-        display: none;
         transition: 0.5s;
+        width: 100%;
     }
 
-    .header__login {
-        display: none;
-    }
 
     .header__login-item {
         display: none;
     }
 
     .header__burger {
-        display: flex;
         transition: 0.5s;
     }
 }

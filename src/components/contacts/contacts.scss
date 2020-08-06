@@ -1,0 +1,18 @@
+@import '../../variables';
+
+.contacts{
+    width: 100%;
+    background-color: rgb(54, 54, 54);
+    color: white;
+    min-height: 80px;
+    height: 4vh;
+    text-align: center; 
+    font-size: 1.2rem;
+}
+.cotacts__adress{
+    text-decoration: none;
+    color: white;
+    &:hover{
+        color:white ;
+    }
+}
