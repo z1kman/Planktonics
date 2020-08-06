@@ -9,7 +9,7 @@ export default class ChatItem extends Component {
           text : '',
           username : 'Иван Васильев',
           id : 0,
-          id_user : 1,
+          user : 1,
           jobChat : true,
           servicePanel : false,
           prevId : 0,
@@ -61,7 +61,7 @@ export default class ChatItem extends Component {
         } else {
             if(JSON.parse(localStorage.getItem(dataType) != null)) {
                 messages = JSON.parse(localStorage.getItem(dataType));
-                messages.push({text: this.state.text, username : this.state.username, date : dateNow, id : this.state.id,  id_user : this.state.id_user })
+                messages.push({text: this.state.text, username : this.state.username, date : dateNow, id : this.state.id,  user : this.state.user })
             } 
             localStorage.setItem(dataType, JSON.stringify(messages));
             this.setState({id :  Math.floor(9999999999999 + Math.random() * (1000000000000 - 9999999999999)), text : ''});
@@ -71,13 +71,15 @@ export default class ChatItem extends Component {
     createMessageList() {
         let elements;
         const dataType = this.state.jobChat === true ? 'messages-job' :  'messages-common';
-        if (JSON.parse(localStorage.getItem(dataType) != null)) {
-            elements = JSON.parse(localStorage.getItem(dataType)).map((item) => {
+        const messages = JSON.parse(localStorage.getItem(dataType));
+        if (messages != null) {
+            elements = messages.map((item) => {
                 let activeClass = "";
                 const idMess = {'id' : item.id};
                 if (Number(this.state.prevId) === Number(item.id) && this.state.servicePanel === true)
                     activeClass = Number(this.state.prevId) === Number(item.id) ? " active-message" : "";
-                const typeMessage = Number(item.id_user) === 1 ?  "chat-box__outgoing-message" : "chat-box__incoming-message";
+                const typeMessage = Number(item.user) === this.state.user ?  "chat-box__outgoing-message" : "chat-box__incoming-message";
+
                 return(
                     <div {...idMess} className={typeMessage + activeClass} key = {item.id} onClick={this.getServicePanel}>
                         <div {...idMess} className="chat-box__text-message">{item.text}</div>
@@ -97,10 +99,10 @@ export default class ChatItem extends Component {
 
             messages.map((item) => {
 
-                if(item.id_user === this.state.id_user && this.state.prevId === event.target.id){
+                if(this.state.prevId === event.target.id){
                     this.setState({servicePanel : !this.state.servicePanel});
 
-                }else if(item.id_user === this.state.id_user && this.state.prevId !== event.target.id) {
+                }else if(this.state.prevId !== event.target.id) {
                     this.setState({servicePanel : true, prevId : event.target.id});
                 }
             })
