@@ -96,12 +96,11 @@ export default class ChatItem extends Component {
             const messages = JSON.parse(localStorage.getItem(dataType));
 
             messages.map((item) => {
-                //console.log(Number(item.id_user) + " " + Number(this.state.id_user) + "-" + this.state.prevId + " " + event.target.id)
+
                 if(item.id_user === this.state.id_user && this.state.prevId === event.target.id){
-                    //this.setState({servicePanel : !this.state.servicePanel});
+                    this.setState({servicePanel : !this.state.servicePanel});
 
                 }else if(item.id_user === this.state.id_user && this.state.prevId !== event.target.id) {
-                    console.log(item.id_user + " " + this.state.id_user + "-" + this.state.prevId + " " + event.target.id)
                     this.setState({servicePanel : true, prevId : event.target.id});
                 }
             })
