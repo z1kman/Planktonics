@@ -1,4 +1,4 @@
-## <a name="StartProject"> Запуск проекта: </a>
+
 ## Содержание
 1. [Описание](#description)
 2. [Инструкция](#instruction)
